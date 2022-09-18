@@ -1,0 +1,53 @@
+.new-expense{
+    padding: 10px 20px;
+    background-color: rgb(2, 154, 154);
+    margin: 10px 0;
+}
+
+.new-expense__controls{
+    position: relative;
+    display: flex;
+    width: 100%;
+    background-color: rgb(2, 154, 154);
+    flex-wrap: wrap;
+}
+.new-expense__actions:last-of-type {
+        /* width: 100%; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+}
+.new-expense__actions:last-of-type button {
+    font-size: 25px;
+    padding: 5px 15px;
+}
+.new-expense__control{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+.new-expense__control label{
+    color: white;
+    text-align: left;
+}
+.new-expense__control input{
+    width: 70%;
+    border-radius: 5px;
+    border: 0;
+    padding: 10px 20px;
+    margin: 10px 20px 10px 0px;
+}
+
+.new-expense__actions button{
+    background: rgb(0, 158, 179);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    border: 2px solid #fff;
+    border-radius: 25px;
+    padding: 40px 40px;
+    color: #fff;
+}

@@ -1,0 +1,18 @@
+.expense-filter__box{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.expense-filter__option{
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px 40px;
+    font-weight: bold;
+}
+
+.expense-filter__option:focus{
+    outline: none;
+}
