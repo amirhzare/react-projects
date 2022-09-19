@@ -45,9 +45,10 @@
 
 .new-expense__actions button{
     background: rgb(0, 158, 179);
-    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
-    border: 2px solid #fff;
-    border-radius: 25px;
+    /* box-shadow: 0 5px 10px rgba(241, 214, 214, 0.2); */
+    margin: 0 5px;
+    border: none;
+    border-radius: 10px;
     padding: 40px 40px;
     color: #fff;
 }
