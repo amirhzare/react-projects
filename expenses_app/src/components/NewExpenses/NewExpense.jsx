@@ -8,7 +8,6 @@ function NewExpense(props) {
     useIsEditing(true);
   }
   function DisableEditing() {
-    console.log("cancled");
     useIsEditing(false);
   }
   return (

@@ -14,6 +14,7 @@ function ExpenseFilter(props) {
         className="expense-filter__option"
         onChange={optionChange}
       >
+        <option value="ALL">ALL</option>
         <option value="2022">2022</option>
         <option value="2021">2021</option>
         <option value="2020">2020</option>

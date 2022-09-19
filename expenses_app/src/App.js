@@ -8,6 +8,8 @@ function App() {
   const [expenses, setExpenses]=useState([
     { key: "e1", title: "Transfer", amount: 20, date: new Date(2020, 12, 3) },
     { key: "e2", title: "Phone Bill", amount: 150, date: new Date(2022, 1, 7) },
+    { key: "e3", title: "Qurl", amount: 150, date: new Date(2022, 1, 7) },
+    { key: "e5", title: "Bill", amount: 150, date: new Date(2020, 1, 7) },
   ])
   // const expenses = [
   //   { key: "e1", title: "Transfer", amount: 20, date: new Date(2020, 12, 3) },

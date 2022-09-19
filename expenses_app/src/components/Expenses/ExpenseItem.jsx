@@ -4,7 +4,6 @@ function ExpenseItem(props) {
   const day = props.date.toLocaleString("en-us", { day: "2-digit" });
   const month = props.date.toLocaleString("en-us", { month: "long" });
   const year = props.date.getFullYear();
-  console.log(props.date.getFullYear());
   return (
     <div className="expense-item">
       <div className="expense-item__date">
