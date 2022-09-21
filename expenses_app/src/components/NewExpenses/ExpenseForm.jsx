@@ -5,7 +5,7 @@ function ExpenseForm(props) {
   const [userInput, setUserInput] = useState({
     enteredTitle: "",
     enteredAmount: "",
-    enteredDate: "2019-01-01",
+    enteredDate: "2020-01-01",
   });
   const handleFormSubmit = (event) => {
     event.preventDefault();
