@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import classes from "./cart.module.css";
 import Model from "../UI/Model";
 import CartContex from "../../store/cart-context";
@@ -7,6 +7,8 @@ import Checkout from "./Checkout";
 
 const Cart = (props) => {
   const [isCheckOut, setIsCheckedOut] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmited, setIsSubmited] = useState(false);
   const cartCtx = useContext(CartContex);
   const totalAmount = `${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
@@ -35,7 +37,20 @@ const Cart = (props) => {
       ))}
     </ul>
   );
-  const submitHandler = (userData) => {};
+  const submitHandler = async (userData) => {
+    setIsSubmitting(true);
+    setIsSubmited(false);
+    await fetch("https://meal-37c1c-default-rtdb.firebaseio.com/orders.json", {
+      method: "POST",
+      body: JSON.stringify({
+        user: userData,
+        orderedItems: cartCtx.items,
+      }),
+    });
+    setIsSubmitting(false);
+    setIsSubmited(true);
+    cartCtx.clearCart();
+  };
   const modalAction = () => {
     return (
       <div className={classes.actions}>
@@ -46,14 +61,35 @@ const Cart = (props) => {
       </div>
     );
   };
-  return (
-    <Model>
-      {cartItems}
+
+  const inputsField = (
+    <React.Fragment>
       <div className={classes.total}>
         <span>Total Amount</span>
         <span>${totalAmount}</span>
       </div>
-      {isCheckOut && <Checkout onClose={props.onHideCart} />}
+
+      <Checkout onClose={props.onHideCart} onConfirm={submitHandler} />
+    </React.Fragment>
+  );
+
+  const isSubmittedContent = (
+    <React.Fragment>
+      <p>The request is submitted!</p>
+      <div className={classes.actions}>
+        <button className={classes["button--alt"]} onClick={props.onHideCart}>
+          OK
+        </button>
+        {hasItems && <button onClick={orderHandler}>Order</button>}
+      </div>
+    </React.Fragment>
+  );
+
+  return (
+    <Model>
+      {cartItems}
+      {!isSubmited && isCheckOut && inputsField}
+      {isSubmited && isSubmittedContent}
       {!isCheckOut && modalAction()}
     </Model>
   );
